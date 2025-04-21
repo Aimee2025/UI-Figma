@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:figma/screen/otp_verfication_screen.dart';
 
 void main() {
   runApp(const TechMeSignUpApp());
@@ -47,52 +48,55 @@ class SignUpPage extends StatelessWidget {
               const Center(
                 child: Text(
                   'Create Account',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                  ),
+                  style: TextStyle(fontSize: 16, color: Colors.white70),
                 ),
               ),
-              const SizedBox(height: 30),
-              const Text(
-                'Your Name',
-                style: TextStyle(color: Colors.white),
-              ),
+              const SizedBox(height: 15),
+              const Text('Your Name', style: TextStyle(color: Colors.white)),
               const SizedBox(height: 5),
               _buildInputField(Icons.person_outline, 'Enter fullname'),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               const Text(
                 'Email Address',
                 style: TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 5),
               _buildInputField(Icons.email_outlined, 'Enter email'),
-              const SizedBox(height: 20),
-              const Text(
-                'Phone Number',
-                style: TextStyle(color: Colors.white),
-              ),
+              const SizedBox(height: 15),
+              const Text('Phone Number', style: TextStyle(color: Colors.white)),
               const SizedBox(height: 5),
               _buildInputField(Icons.phone_android, 'Enter phone'),
-              const SizedBox(height: 20),
-              const Text(
-                'Password',
-                style: TextStyle(color: Colors.white),
-              ),
+              const SizedBox(height: 15),
+              const Text('Password', style: TextStyle(color: Colors.white)),
               const SizedBox(height: 5),
-              _buildInputField(Icons.lock_outline, 'Enter password', isPassword: true),
-              const SizedBox(height: 20),
+              _buildInputField(
+                Icons.lock_outline,
+                'Enter password',
+                isPassword: true,
+              ),
+              const SizedBox(height: 15),
               const Text(
                 'Confirm Password',
                 style: TextStyle(color: Colors.white),
               ),
               const SizedBox(height: 5),
-              _buildInputField(Icons.lock_outline, 'Confirm password', isPassword: true),
-              const SizedBox(height: 30),
+              _buildInputField(
+                Icons.lock_outline,
+                'Confirm password',
+                isPassword: true,
+              ),
+              const SizedBox(height: 15),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const OTPVerificationScreen(),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: buttonColor,
                     padding: const EdgeInsets.symmetric(vertical: 14),
@@ -101,8 +105,7 @@ class SignUpPage extends StatelessWidget {
                     ),
                   ),
                   child: const Text(
-                    'Next',
-                    style: TextStyle(fontSize: 16, color: Colors.white),
+                    'Next',style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
               ),
@@ -116,10 +119,20 @@ class SignUpPage extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OTPVerificationApp(),
+                          ),
+                        ); // Navigate back to the login screen
+                      },
                       child: const Text(
                         'Login Now',
-                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -132,19 +145,21 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
-  Widget _buildInputField(IconData icon, String hintText, {bool isPassword = false}) {
+  Widget _buildInputField(
+    IconData icon,
+    String hintText, {
+    bool isPassword = false,
+  }) {
     return TextField(
       obscureText: isPassword,
       style: const TextStyle(color: Colors.white),
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white.withOpacity(0.1),
+        // fillColor: Colors.white.withOpacity(0.1),
         hintText: hintText,
         hintStyle: const TextStyle(color: Colors.white70),
         prefixIcon: Icon(icon, color: Colors.white70),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: Colors.white70),

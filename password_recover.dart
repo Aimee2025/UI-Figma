@@ -42,10 +42,7 @@ class PasswordRecoverScreen extends StatelessWidget {
               const Text(
                 'If the email or phone number is registered, you will receive a code',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.white70,
-                ),
+                style: TextStyle(fontSize: 14, color: Colors.white70),
               ),
               const SizedBox(height: 30),
               TextField(
@@ -57,7 +54,10 @@ class PasswordRecoverScreen extends StatelessWidget {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  contentPadding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 14,
+                    horizontal: 16,
+                  ),
                 ),
               ),
               const SizedBox(height: 10),
@@ -93,8 +93,8 @@ class PasswordRecoverScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Image.asset(
-                  'assets/reading_girl.png', // Replace with the correct path to your asset
-                  height: 150,
+                  'assets/12.png', // Replace with the correct path to your asset
+                  height: 250,
                 ),
               ),
             ],
